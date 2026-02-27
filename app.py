@@ -42,9 +42,18 @@ if st.button("시뮬레이션 실행"):
     
     fig, ax = plt.subplots()
     ax.plot(x_coords, y_coords, color='green', linewidth=3, label='Gerbera Stem')
-    ax.set_xlim(-50, 50)
-    ax.set_ylim(0, 150)
+    
+    # --- 여기서부터 수정 및 추가되는 부분입니다 ---
+    ax.set_xlabel("Horizontal Position (cm)") # 가로축 이름 추가
+    ax.set_ylabel("Vertical Growth (cm)")    # 세로축 이름 추가
+    ax.set_title("Gerbera Stem Growth Simulation") # 그래프 제목 추가
+    
+    ax.set_xlim(-50, 50)  # 가로축 범위
+    ax.set_ylim(0, 120)   # 세로축 최대값을 140에서 120으로 변경
+    # ------------------------------------------
+    
     ax.set_aspect('equal')
+    ax.grid(True, linestyle='--', alpha=0.6) # 눈금선 추가 (선택사항)
     ax.legend()
     st.pyplot(fig)
     
